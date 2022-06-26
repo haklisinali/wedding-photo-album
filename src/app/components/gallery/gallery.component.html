@@ -1,0 +1,9 @@
+<div class="grid-container">
+    <div *ngFor="let image of images">
+        <div class="grid-item">
+            <app-image [imageConfig]="image"></app-image>
+        </div>
+    </div>
+</div>
+
+<button (click)="loadMore()">LOAD MORE</button>

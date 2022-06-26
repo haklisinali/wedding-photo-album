@@ -1,0 +1,22 @@
+.main-page-header {
+    display: flex;
+    background-color: aqua;
+    width: 100%;
+    place-content: center;
+}
+
+.main-page-container {
+    display: flex;
+    place-content: center;
+    overflow: auto;
+
+    .gallery {
+        max-height: 95vh;
+    }
+}
+
+.main-page-footer {
+    display: flex;
+    place-content: center;
+    background-color: salmon;
+}
