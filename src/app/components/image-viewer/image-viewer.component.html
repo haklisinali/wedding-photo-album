@@ -1,0 +1,11 @@
+<div class="slider">
+    <div class="arrow left">
+        <button class="button" (click)="previousImage()">previous</button>
+    </div>
+    <div class="image">
+        <img [src]="selectedImage.url">
+    </div>
+    <div class="arrow right">
+        <button class="button" (click)="nextImage()">next</button>
+    </div>
+</div>

@@ -8,7 +8,7 @@ export namespace ImagesActions {
     export class SelectImage {
         static readonly type = '[Images] Select image';
 
-        constructor(public selectedImageKey: string){}
+        constructor(public selectedImageId: number){}
     }
 
     export class SelectNextImage {

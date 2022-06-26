@@ -1,7 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { ImagesActions } from 'src/app/store/images/images.actions';
+import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
+import { OverlayService } from '../overlay/overlay.service';
 
 export type ImageType = {
-  key: string,
+  id: number,
   url: string
 }
 
@@ -10,14 +14,17 @@ export type ImageType = {
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.scss']
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent {
 
-  @Input() imageConfig: ImageType = { key: '', url: ''};
+  @Input() imageConfig: ImageType;
 
-  constructor() { }
+  constructor(
+    private _overlaySerivce: OverlayService,
+    private _store: Store
+  ) { }
 
-  ngOnInit(): void {
-    console.log('imageConfig: ', this.imageConfig)
+  viewImage(): void {
+    this._store.dispatch(new ImagesActions.SelectImage(this.imageConfig.id))
+    const ref = this._overlaySerivce.open(ImageViewerComponent)
   }
-
 }

@@ -13,12 +13,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    MainPageComponent
+    MainPageComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    GalleryModule
+    GalleryModule,
   ]
 })
 export class MainPageModule { }
