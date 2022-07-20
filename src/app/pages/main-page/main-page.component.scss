@@ -1,22 +1,22 @@
+:host {
+    min-height: 100%;
+}
 .main-page-header {
     display: flex;
     background-color: aqua;
     width: 100%;
     place-content: center;
+    height: 150px;
 }
 
 .main-page-container {
     display: flex;
     place-content: center;
-    overflow: auto;
+    max-width: 1360px;
+    margin: auto;
+    min-height: calc(100% - 150px);
 
     .gallery {
-        max-height: 95vh;
+        max-height: 95%;
     }
-}
-
-.main-page-footer {
-    display: flex;
-    place-content: center;
-    background-color: salmon;
 }

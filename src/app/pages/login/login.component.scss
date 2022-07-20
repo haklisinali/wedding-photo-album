@@ -1,0 +1,10 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-content-width);
+}   
+
+.center-logo {
+    align-self: center;
+    max-width: 680px;
+}
