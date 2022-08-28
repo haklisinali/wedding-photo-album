@@ -3,10 +3,14 @@
 }
 .main-page-header {
     display: flex;
-    background-color: aqua;
     width: 100%;
     place-content: center;
-    height: 150px;
+    padding: 32px 0 32px 0;
+
+    & img {
+        padding: 0 32px 0 32px;
+        width: 860px;
+    }
 }
 
 .main-page-container {

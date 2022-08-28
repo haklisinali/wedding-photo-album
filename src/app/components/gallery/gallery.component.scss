@@ -1,3 +1,8 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
 .grid-container {
     display: grid;
     grid-gap: 1rem;
@@ -7,6 +12,29 @@
     background-color: green;
     display: flex;
     place-content: center;
+}
+
+.button-load-more {
+    background: none;
+    border: none;
+    margin: 32px auto 32px auto;
+    justify-self: center;
+
+    .button-text {
+        background-image: url('../../../assets/images/background-gold.png');
+        height: -moz-fit-content;
+        height: fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 1rem 1.5rem;
+        margin: auto;
+        text-align: center;
+        border-radius: 0.2rem;
+        opacity: 1;
+        font-size: 1.4rem;
+        font-weight: 200;
+        color: #000;
+    }
 }
 
 @media (max-width: 640px){
@@ -24,3 +52,4 @@
 @media (min-width: 1200px){        
     .grid-container { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
