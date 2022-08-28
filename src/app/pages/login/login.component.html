@@ -3,7 +3,17 @@
         <img src="../../../assets/images/center.png">
     </div>
 
-    <button [routerLink]="['../main']">
-        ENTER
-    </button>
+    <!-- <div class="photos-login">
+        <p>Ver fotos</p>
+    </div> -->
+
+    <div class="login">
+        <div class="login-password">
+            <input type="password" id="password" [(ngModel)]="password" placeholder="Insira password">
+            <button (click)="clickHandler($event)">
+                ENTER
+            </button>
+        </div>
+        <p *ngIf="errorMessage" class="login-error">{{ errorMessage }}</p>
+    </div>
 </div>
