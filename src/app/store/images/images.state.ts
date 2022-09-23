@@ -64,7 +64,6 @@ export class ImagesState {
 
             if(newImages.find(img => img.id == imageId) || ctx.getState().galleryListIds.includes(imageId)) continue;
 
-            console.log('imageKey: ', imageKey)
 
             newImages.push({
                 id: imageId,
@@ -98,7 +97,6 @@ export class ImagesState {
         const newId = ctx.getState().selectedImageId + 1
 
         if(newId % IMAGES_PER_PAGE == 0) {
-            console.log('requested new images')
             this.getImages(ctx, {page: ctx.getState().currentPage + 1});
         }
 

@@ -9,8 +9,8 @@
 }
 
 .grid-item {
-    background-color: green;
     display: flex;
+    place-self: center;
     place-content: center;
 }
 

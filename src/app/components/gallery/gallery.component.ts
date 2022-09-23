@@ -33,7 +33,6 @@ export class GalleryComponent implements OnInit {
 
   loadMore(){
     this.currentPage++;
-    console.log('currentPage: ', this.currentPage)
 
     this.getImagesForCurrentPage()
   }

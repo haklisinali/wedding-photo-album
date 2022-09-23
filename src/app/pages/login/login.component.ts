@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import * as sha256 from 'crypto-js/sha256';
+import * as Base64 from 'crypto-js/enc-base64';
+import { SharedDataService } from 'src/app/core/services/shared-data.service';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +15,13 @@ export class LoginComponent {
   public errorMessage: string;
 
   constructor(
-    private _router:Router
-  ){
-
-  }
+    private _router:Router,
+    private _sharedData: SharedDataService
+  ){}
 
   clickHandler(event: Event): void{
-    console.log('password: ', this.password)
+    const hashDigest = sha256(this.password);
+    const hmacDigest = Base64.stringify(hashDigest);
 
     if(!this.password) {
       this.errorMessage= 'Insira uma password válida'
@@ -30,6 +33,12 @@ export class LoginComponent {
       return;
     }
 
+    if(hmacDigest !== 'tk7zU+GHGLPlz0vIBWqYQfpCF7V3pYs0n9gyiATy7Q4=') {
+      this.errorMessage = 'Wrong password, try again please'
+      return;
+    }
+
+    this._sharedData.isLoggedIn = true;
     this._router.navigate(['../main']);
   }
 }
