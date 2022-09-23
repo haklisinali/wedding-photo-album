@@ -6,6 +6,6 @@
     </div>
 </div>
 
-<button class="button-load-more" (click)="loadMore()">
+<button *ngIf="!noMorePhotos" class="button-load-more" (click)="loadMore()">
     <div class="button-text">load more</div>
 </button>

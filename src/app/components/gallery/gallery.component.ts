@@ -13,6 +13,7 @@ export class GalleryComponent implements OnInit {
 
   images: ImageType[] = [];
   currentPage = 0;
+  noMorePhotos = false;
 
   constructor(
     private _store: Store
@@ -22,6 +23,10 @@ export class GalleryComponent implements OnInit {
     this._store.select(ImagesState.galleryList).subscribe((images: ImageType[]) => {
       this.images = images
     })
+
+    this._store.select(ImagesState.noMorePhotos).subscribe((noMorePhotos: boolean) => {
+      this.noMorePhotos = noMorePhotos;
+    } )
 
     this.getImagesForCurrentPage()
   }
