@@ -1,12 +1,24 @@
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
-import { Injectable, Injector, TemplateRef, Type } from '@angular/core';
+import { Injectable, Injector, Type } from '@angular/core';
 import { MyOverlayRef } from './overlay-ref';
 import { OverlayComponent } from './overlay.component';
 
 /**
  * https://github.com/mainawycliffe/ng-cdk-overlay-demo
  */
+
+ interface ImagePreviewDialogConfig {
+  panelClass?: string[];
+  hasBackdrop?: boolean;
+  backdropClass?: string;
+}
+
+const DEFAULT_CONFIG: ImagePreviewDialogConfig = {
+  hasBackdrop: true,
+  panelClass: ['modal', 'is-active'],
+  backdropClass: 'modal-background'
+}
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +30,7 @@ export class OverlayService {
     content: Type<any>
   ): MyOverlayRef<R> {
     const configs = new OverlayConfig({
-      hasBackdrop: true,
       panelClass: ['modal', 'is-active'],
-      backdropClass: 'modal-background'
     });
 
     const overlayRef = this.overlay.create(configs);

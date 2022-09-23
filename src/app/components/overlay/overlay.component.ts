@@ -1,10 +1,12 @@
+import { FullscreenOverlayContainer, OverlayContainer } from '@angular/cdk/overlay';
 import { Component, OnInit, Type } from '@angular/core';
 import { MyOverlayRef } from './overlay-ref';
 
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
-  styleUrls: ['./overlay.component.scss']
+  styleUrls: ['./overlay.component.scss'],
+  providers: [{provide: OverlayContainer, useClass: FullscreenOverlayContainer}],
 })
 export class OverlayComponent implements OnInit {
   contentType =  'component';

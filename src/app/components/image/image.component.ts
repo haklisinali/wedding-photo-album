@@ -3,6 +3,7 @@ import { Store } from '@ngxs/store';
 import { ImagesActions } from 'src/app/store/images/images.actions';
 import { ImageViewerComponent } from '../image-viewer/image-viewer.component';
 import { OverlayService } from '../overlay/overlay.service';
+import * as bodyScroll from 'body-scroll-toggle'
 
 export type ImageType = {
   id: number,
@@ -26,5 +27,11 @@ export class ImageComponent {
   viewImage(): void {
     this._store.dispatch(new ImagesActions.SelectImage(this.imageConfig.id))
     const ref = this._overlaySerivce.open(ImageViewerComponent)
+
+    bodyScroll.disable();
+
+    ref.afterClosed$.subscribe(_ => {
+      bodyScroll.enable();
+    })
   }
 }
