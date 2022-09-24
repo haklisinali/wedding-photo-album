@@ -2,3 +2,27 @@
     display: flex;
     place-items: center;
 }
+
+.arrow {
+    &.left {
+        margin-right: 8px;
+    } 
+    &.right {
+        margin-left: 8px;
+    } 
+}
+
+.image {
+    max-width:75%;
+}
+
+.nav-button {
+    background-color: transparent;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    font-size: 11px;
+    background-image: url('../../../assets/images/background-gold.png');
+    color: black;
+    border: 1px solid #ced4da;
+}

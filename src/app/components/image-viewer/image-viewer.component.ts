@@ -4,6 +4,7 @@ import { ImagesActions } from 'src/app/store/images/images.actions';
 import { ImagesState } from 'src/app/store/images/images.state';
 import { ImageType } from '../image/image.component';
 
+
 @Component({
   selector: 'app-image-viewer',
   templateUrl: './image-viewer.component.html',

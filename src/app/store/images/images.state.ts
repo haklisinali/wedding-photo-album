@@ -6,7 +6,7 @@ import { append, patch } from '@ngxs/store/operators';
 
 
 const IMAGES_PER_PAGE = 12;
-const LAST_PHOTO_ID = 302;
+const LAST_PHOTO_ID = 313;
 
 type ImagesStateData = {
     imagesList: ImageType[],
@@ -43,7 +43,7 @@ export class ImagesState {
     }
 
     @Selector()
-    static noMorePhotos(state: ImagesStateData) {
+    static noMorePhotos(state: ImagesStateData) {
         return state.noMorePhotos
     }
 
@@ -132,7 +132,7 @@ export class ImagesState {
     }
 
     private _verifyExceptions(idx: number): number {
-        const exceptions = [11, 15, 23, 26, 27, 29, 34, 35, 38, 48, 49, 56, 57, 58, 59, 62, 110, 180, 183, 187, 194, 197, 217, 219, 248, 261 ]
+        const exceptions = [11, 15, 23, 26, 27, 29, 34, 35, 38, 48, 49, 56, 57, 58, 59, 62, 110, 180, 183, 187, 194, 197, 217, 219, 248, 261, 311]
 
         if(exceptions.includes(idx)) {
             return this._verifyExceptions(idx + 1)

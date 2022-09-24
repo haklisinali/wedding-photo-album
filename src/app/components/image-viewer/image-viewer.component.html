@@ -1,11 +1,15 @@
 <div class="slider">
     <div class="arrow left">
-        <button class="button" (click)="previousImage()">previous</button>
+        <button class="nav-button" (click)="previousImage()">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </button>
     </div>
     <div class="image">
         <img [src]="selectedImage.url">
     </div>
     <div class="arrow right">
-        <button class="button" (click)="nextImage()">next</button>
+        <button class="nav-button" (click)="nextImage()"> 
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
     </div>
 </div>

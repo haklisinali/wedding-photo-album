@@ -16,7 +16,7 @@ import { OverlayComponent } from './overlay.component';
 
 const DEFAULT_CONFIG: ImagePreviewDialogConfig = {
   hasBackdrop: true,
-  panelClass: ['modal', 'is-active'],
+  panelClass: ['modal', 'is-active', 'is-clipped'],
   backdropClass: 'modal-background'
 }
 
@@ -30,7 +30,9 @@ export class OverlayService {
     content: Type<any>
   ): MyOverlayRef<R> {
     const configs = new OverlayConfig({
-      panelClass: ['modal', 'is-active'],
+      hasBackdrop: true,
+      panelClass: ['modal', 'is-active', 'is-clipped'],
+      backdropClass: 'modal-background'    
     });
 
     const overlayRef = this.overlay.create(configs);
