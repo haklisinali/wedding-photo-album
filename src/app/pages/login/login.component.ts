@@ -30,7 +30,7 @@ export class LoginComponent {
       return
     }
 
-    if(hmacDigest !== 'tk7zU+GHGLPlz0vIBWqYQfpCF7V3pYs0n9gyiATy7Q4=') {
+    if(hmacDigest !== 'MaqtP45KwJxG7TMUdeVvWNO2MPCGdWyTu13Ke7CZhp4=') {
       this.errorMessageEn = 'Wrong password, try again please'
       this.errorMessagePt = 'Password errada, tente novamente'
       return;
