@@ -6,7 +6,6 @@ import { MyOverlayRef } from './overlay-ref';
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.scss'],
-  // providers: [{provide: OverlayContainer, useClass: FullscreenOverlayContainer}],
 })
 export class OverlayComponent implements OnInit {
   contentType =  'component';
