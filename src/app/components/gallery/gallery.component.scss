@@ -17,6 +17,7 @@
 .button-load-more {
     background: none;
     border: none;
+    width: 80px;
     margin: 32px auto 32px auto;
     justify-self: center;
 
@@ -24,8 +25,8 @@
         background-image: url('../../../assets/images/background-gold.png');
         height: -moz-fit-content;
         height: fit-content;
-        width: -moz-fit-content;
-        width: fit-content;
+        // width: -moz-fit-content;
+        // width: fit-content;
         padding: 1rem 1.5rem;
         margin: auto;
         text-align: center;

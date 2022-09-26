@@ -12,7 +12,8 @@ import { SharedDataService } from 'src/app/core/services/shared-data.service';
 export class LoginComponent {
   public password: string;
   public isPasswordSet: string;
-  public errorMessage: string;
+  public errorMessagePt: string;
+  public errorMessageEn: string;
 
   constructor(
     private _router:Router,
@@ -24,17 +25,14 @@ export class LoginComponent {
     const hmacDigest = Base64.stringify(hashDigest);
 
     if(!this.password) {
-      this.errorMessage= 'Insira uma password válida'
+      this.errorMessagePt= 'Insira uma password válida'
+      this.errorMessageEn= 'Insert a valid password'
       return
     }
 
-    if(this.password?.length < 3) {
-      this.errorMessage = 'Password must have at least 3 characters'
-      return;
-    }
-
     if(hmacDigest !== 'tk7zU+GHGLPlz0vIBWqYQfpCF7V3pYs0n9gyiATy7Q4=') {
-      this.errorMessage = 'Wrong password, try again please'
+      this.errorMessageEn = 'Wrong password, try again please'
+      this.errorMessagePt = 'Password errada, tente novamente'
       return;
     }
 
