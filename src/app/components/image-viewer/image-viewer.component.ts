@@ -13,6 +13,8 @@ import { ImageType } from '../image/image.component';
 export class ImageViewerComponent implements OnInit {
 
   selectedImage?: ImageType;
+  isFirstPhoto: boolean;
+  isLastPhoto: boolean;
 
   constructor(
     private _store: Store
@@ -21,6 +23,8 @@ export class ImageViewerComponent implements OnInit {
   ngOnInit(): void {
     this._store.select(ImagesState.selectedImage).subscribe((image: ImageType | undefined) => {
       this.selectedImage = image;
+      this.isFirstPhoto = image.id == 1 ? true : false;
+      this.isLastPhoto = image.id == 313 ? true : false;
     })
   }
 

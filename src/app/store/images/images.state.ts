@@ -53,7 +53,7 @@ export class ImagesState {
         let noMorePhotos = false;
 
         for (const idx of [...Array(IMAGES_PER_PAGE).keys()].map(x => x + 1)) {
-            const imageId = this._verifyExceptions(action.page * IMAGES_PER_PAGE + idx);
+            const imageId = this._verifyExceptions(action.page * IMAGES_PER_PAGE + idx, 'add');
 
             if(imageId > LAST_PHOTO_ID) {
                 noMorePhotos = true;
@@ -93,10 +93,9 @@ export class ImagesState {
 
     @Action(ImagesActions.SelectNextImage)
     async selectNextImage(ctx: StateContext<ImagesStateData>, action?: ImagesActions.SelectNextImage) {
+        const newId = this._verifyExceptions(ctx.getState().selectedImageId + 1, 'add')
 
-        const newId = ctx.getState().selectedImageId + 1
-
-        if(newId % IMAGES_PER_PAGE == 0) {
+        if(!ctx.getState().galleryListIds.includes(newId)) {
             this.getImages(ctx, {page: ctx.getState().currentPage + 1});
         }
 
@@ -111,7 +110,7 @@ export class ImagesState {
     async selectPreviousImage(ctx: StateContext<ImagesStateData>, action?: ImagesActions.SelectPreviousImage) {
         ctx.setState(
             patch({
-                selectedImageId: ctx.getState().selectedImageId - 1
+                selectedImageId: this._verifyExceptions(ctx.getState().selectedImageId - 1, 'subtract')
             })
         )
     }
@@ -131,11 +130,12 @@ export class ImagesState {
         } 
     }
 
-    private _verifyExceptions(idx: number): number {
+    private _verifyExceptions(idx: number, operation: 'add' | 'subtract'): number {
+        const delta = operation == 'add' ? 1 : -1;
         const exceptions = [11, 15, 23, 26, 27, 29, 34, 35, 38, 48, 49, 56, 57, 58, 59, 62, 110, 180, 183, 187, 194, 197, 217, 219, 248, 261, 311]
 
         if(exceptions.includes(idx)) {
-            return this._verifyExceptions(idx + 1)
+            return this._verifyExceptions(idx + delta, operation)
         }
 
         return idx;
