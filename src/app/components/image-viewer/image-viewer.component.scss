@@ -4,6 +4,13 @@
 }
 
 .arrow {
+    color: rgb(243, 224, 155);
+    cursor: pointer;
+
+    & .material-symbols-outlined {
+        font-size: 32px;
+    }
+
     &.left {
         margin-right: 8px;
     } 
@@ -14,15 +21,5 @@
 
 .image {
     max-width:75%;
-}
-
-.nav-button {
-    background-color: transparent;
-    border-radius: 50%;
-    height: 24px;
-    width: 24px;
-    font-size: 11px;
-    background-image: url('../../../assets/images/background-gold.png');
-    color: black;
-    border: 1px solid #ced4da;
+    margin: 0 auto;
 }

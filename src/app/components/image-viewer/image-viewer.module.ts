@@ -8,7 +8,7 @@ import { ImageViewerComponent } from './image-viewer.component';
     ImageViewerComponent,
   ],
   imports: [
-    CommonModule,
+    CommonModule
   ],
   exports: [
     ImageViewerComponent

@@ -5,7 +5,7 @@ import { ImagesActions } from "./images.actions";
 import { append, patch } from '@ngxs/store/operators';
 
 
-const IMAGES_PER_PAGE = 12;
+const IMAGES_PER_PAGE = 24;
 const LAST_PHOTO_ID = 313;
 
 type ImagesStateData = {
