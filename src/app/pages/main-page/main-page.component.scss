@@ -1,13 +1,14 @@
 :host {
     min-height: 100%;
 }
+
 .main-page-header {
     display: flex;
     width: 100%;
     place-content: center;
     padding: 32px 0 32px 0;
 
-    & img {
+    & .names-title {
         padding: 0 32px 0 32px;
         width: 860px;
     }
@@ -22,5 +23,16 @@
 
     .gallery {
         max-height: 95%;
+    }
+}
+
+.main-page-footer {
+    display: flex;
+    background-color: transparent;
+    justify-content: end;
+
+    .return-button {
+        width: 3.5rem;
+        margin-right: 32px;
     }
 }
