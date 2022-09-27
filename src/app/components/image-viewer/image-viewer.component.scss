@@ -1,21 +1,22 @@
 .slider {
     display: flex;
-    place-items: center;
+    align-items: center;
 }
 
 .arrow {
     color: rgb(243, 224, 155);
     cursor: pointer;
-    padding: 0 8px;
 
     & .material-symbols-outlined {
         font-size: 32px;
     }
 
     &.left {
+        justify-self: start;
         margin-right: 8px;
     } 
     &.right {
+        justify-self: end;
         margin-left: 8px;
     } 
 }
@@ -23,4 +24,8 @@
 .image {
     max-width:75%;
     margin: 0 auto;
+}
+
+.arrow-hidden {
+    display: none;
 }
